@@ -1,2 +1,2 @@
 # cookbook
-something maybe a little usefullllll ?
+語言大亂燉好爽喔
