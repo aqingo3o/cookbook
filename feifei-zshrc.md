@@ -34,5 +34,14 @@ conda activate
 是的我有兩種 conda，因為我現在有點想要試試已經編譯成功的arm-64 pyradex 能不能用  
 所以先這樣，就是跟大家分享一下  
 >
+## Terminal appearance
+提示字元和使用者名稱的顏色改改指令，美麗的工作環境保護身心健康。  
+也是在 .zshrc 裡面加這個  
+```
+autoload -U colors && colors
+export PS1="%F{blue}%n@%m%f %~ %F{blue}$%f "
+```
+不排除任何人有更高級的美商，但依然提供湯底。
 
+----
 下次會寫 alias 切換架構
