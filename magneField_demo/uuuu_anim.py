@@ -9,7 +9,7 @@ charge = 1.0
 B0 = 10.0
 vx0 = 1.0
 dt = 0.01
-stepp = 5 # 做幾次運算，5000 就要算很久了，500 很美麗
+stepp = 500 # 做幾次運算，5000 就要算很久了，500 很美麗
 
 # Vector
 mag_field = np.array([0.0, 0.0, B0]) # init
@@ -94,6 +94,7 @@ def update(fr): # 一邊說我他媽還不信了一邊失去耐性，frame 是�
     traj.set_3d_properties(posi_z[:fr])
     parti.set_data(posi_x[fr-1:fr],posi_y[fr-1:fr]) # 點點會再上一個位子消失
     parti.set_3d_properties(posi_z[fr-1:fr])
+    print(fr) # check point 
     return traj, parti,
 
 anim = FuncAnimation(fig=figg, func=update,
