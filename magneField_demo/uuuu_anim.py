@@ -60,7 +60,7 @@ qu_x, qu_y, qu_z = np.meshgrid(np.linspace(-1, 1, num=10), # 我將要推廣寫 
                                )
 axx.quiver(qu_x, qu_y, qu_z,                         # 插箭頭的點，如果想表示場的話就應該是網格
            mag_field[0], mag_field[1], mag_field[2], # 箭頭的方向，直接很醜的用磁場指定了
-           length=0.02, alpha=0.3, lw=1.2,           # 請享用老子精心調製的參數
+           length=0.1, alpha=0.3, lw=1.2,           # 請享用老子精心調製的參數
            color='mediumblue',                       # 每次最期待的就是選顏色環節
            )
 '''
