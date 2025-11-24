@@ -12,7 +12,7 @@ dt = 0.01
 stepp = 500 # 做幾次運算。5000就要算很久了，500很美麗
 
 # Vector
-mag_field = np.array([0.0, 0.0, B0])  # init
+mag_field = np.array([2.0, 1.5, B0])  # init
 r = np.array([0.0, 0.0, 0.0])         # 說了就是這樣
 velo = np.array([vx0, 0.0, 0.0])      # init
 
@@ -21,8 +21,7 @@ def magForce(q, v, B):
 
 # Caculatingggggg
 position = [] # position
-cc = 0
-while cc<stepp:
+for i in range(stepp):
     f = magForce(charge, velo, mag_field)
     dv = (f/mass) * dt
     velo += dv
@@ -38,7 +37,6 @@ while cc<stepp:
     像是 theList.append(a), 
     a 是 int, flaot, str... 都是不可變物件
     '''
-    cc+=1
 
 # Make figure and axis
 '''
@@ -85,8 +83,8 @@ print('posi_z', posi_z)
 
 # Animm
 # 參考了 Lorentz attractor 的寫法
-traj,  = axx.plot([], [], [], lw=0.5,c='b')
-parti, = axx.plot([], [], [], 'ro')
+traj,  = axx.plot([], [], [], lw=0.5, c='r')
+parti, = axx.plot([], [], [], c='mediumblue', marker='o')
 
 def update(fr): # 一邊說我他媽還不信了一邊失去耐性，frame 是嗎?從今天開始你叫fr
     traj.set_data(posi_x[:fr], posi_y[:fr])
