@@ -9,7 +9,7 @@ import numpy as np
 
 # Constants
 mass = 1.0
-charge = 1.0
+charge = 10.0
 B0 = 1.0
 vx0 = 1.0
 dt = 0.01
@@ -46,7 +46,7 @@ for i in range(stepp):
 figg = plt.figure(figsize=(10,8))
 axx = figg.add_subplot(projection='3d') # 從官網抄的，要這個才能畫出 3d 的圖辣
 # 但同時大概還有三種不同的畫出 3d 圖的方式，隨他媽便，能出現就好。
-axx.set_title('Charge in a uniform magnetic field')
+axx.set_title('Charge in a Uniform Magnetic Field')
 axx.set_xlabel('x')
 axx.set_ylabel('y')
 axx.set_zlabel('z')
@@ -58,16 +58,24 @@ qu_x, qu_y, qu_z = np.meshgrid(np.linspace(-1, 1, num=10), # 我將要推廣寫 
                                np.linspace(-1, 1, num=10),
                                np.linspace(-1, 1, num=5),
                                )
-axx.quiver(qu_x, qu_y, qu_z,                         # 插箭頭的點，如果想表示場的話就應該是網格
-           mag_field[0], mag_field[1], mag_field[2], # 箭頭的方向，直接很醜的用磁場指定了
-           length=0.1, alpha=0.3, lw=1.2,           # 請享用老子精心調製的參數
-           color='mediumblue',                       # 每次最期待的就是選顏色環節
+
+mag_field_stren = 0 # 好啦就是寫得很醜
+for i in mag_field:
+    mag_field_stren += i**2
+    mag_field_stren = mag_field_stren ** 0.5 # 箭頭的長度**不**反映磁場大小
+
+axx.quiver(qu_x, qu_y, qu_z,                                # 插箭頭的點，如果想表示場的話就應該是網格
+           mag_field[0], mag_field[1], mag_field[2],        # 箭頭的方向，直接很醜的用磁場指定了
+           length=(0.1/mag_field_stren), alpha=0.3, lw=1.2, # 請享用老子精心調製的參數
+           color='mediumblue',                              # 每次最期待的就是選顏色環節
            )
+
 '''
 # plot without animm
 for i in position:
     axx.scatter(i[0], i[1], i[2], s=2, c='r')
 '''
+
 # Data prepareeee
 posi_x, posi_y, posi_z = [], [], [] # 有夠醜
 for i in position:
