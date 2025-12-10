@@ -3,6 +3,14 @@
 哪天 feifei 爆炸了我還能用這些東西快速獲得設置好的電腦  
 希望不要啦哈哈
 
+## Switch to difference arch 
+切架構的 alias  
+這樣就不用背這堆東西或每次都 cmd+q 然後到 more info 裡面才能 open with Rosetta2  
+```
+alias arm="env /usr/bin/arch -arm64 /bin/zsh --login"
+alias x86="env /usr/bin/arch -x86_64 /bin/zsh --login"
+```
+>
 ## Switch `conda` in different arch
 真的被 fortran 狠狠操了  
 今天唯一的好事就是在 .zshrc 裡面加了這個:  
@@ -44,4 +52,4 @@ export PS1="%F{blue}%n@%m%f %~ %F{blue}$%f "
 不排除任何人有更高級的美商，但依然提供湯底。
 
 ----
-下次會寫 alias 切換架構
+下次寫 ｀feifei`
