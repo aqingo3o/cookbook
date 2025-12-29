@@ -11,7 +11,7 @@ Because `C++` may require a same named folder so the 編譯/上傳 of the `.ino`
 ## In this folder
 - `manual.md`: ur here :)   
 - `2ldr_lightFollower.ino`: 應該灌到板子里的程式，已經測試過能相容的 Arduino 請參見**Arduino Board and IC**  
-- `Circuit.png`: 電路圖，要接出東西最主要還是電路圖吧，使用了樸實無的麵包板，和我精湛（並無）的理線技術。
+- `circuit.png`: 電路圖，要接出東西最主要還是電路圖吧，使用了樸實無的麵包板，和我精湛（並無）的理線技術。
 
 ## Arduino board and IC
 - Arduino UNO
@@ -21,3 +21,7 @@ Because `C++` may require a same named folder so the 編譯/上傳 of the `.ino`
 
 (Any Arduino of them and a L298N can work,  
 I mean, just pick **one** Arduino board, you won't need three even if you plan to add 6 LDRs on the car.)
+
+## FAQ
+推一個 issue 我再想想  
+目前能想到的就是 LDR 要接在電路中靠近 GND 端的地方，不然讀出來的 Senval 會是相反的。
