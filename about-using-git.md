@@ -62,14 +62,14 @@ nano .git/config
 
 事情是這樣的：  
 本機的主分支叫做 main  
-Github 上的主分支叫做 original/main
+Github 上的主分支叫做 original/main  
 commit 是 commit 到 main, push 是推上 Github  
 大概是這樣
 
 在 vscode 左邊的 **[ Source Control ]** 中找到 **[ Sync Change ]**  
 點它  
 
-如果還不惜的話應該是 Github 的 original/main 和本地的 main 有前有後的  
+如果還不行的話應該是 Github 的 original/main 和本地的 main 有前有後的  
 常見在多人共用的 repo 上  
 解法就是先把 Github 上的東西 pull 下來，再將已經 commit 到 main 的東西 push 上去。  
 
