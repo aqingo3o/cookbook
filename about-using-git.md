@@ -6,28 +6,24 @@
 紅魚會用的東西，從 vscode 直接推東西上 Github  
 
 ### steps
-在 vscode 裡總而言之找到這個按鈕  
-**[ Clone Github Repository ]**  
-憑直觀操作，會在本機獲得一個與 repo 同名的資料夾  
-
+在 vscode 裡總而言之找到這個按鈕 <kbd>Clone Github Repository</kbd>，憑直觀操作，會在本機獲得一個與 repo 同名的資料夾。  
 在 vscode 中打開這個資料夾，然後該改動該新增該怎樣怎樣。  
 
-完成一次 commit 需要的操作之後，在左邊工具列選中
+完成一次 commit 需要的操作之後，在左邊工具列選中  
 **[ Source Control ]**  
 的符號，就是很 git 的一個樹狀的東西。
 
 在 change 的部分把所以東西都 **[ add to change ]**  
 代表說，累計的改動有這麼多，這次像要 commit 其中哪些  
 
-然後選擇按鈕  
-**[ commit & push ]**  
-輸入 commit message 然後按右下的藍色 **[ commit ]** 按鈕   
+然後選擇按鈕 <kbd>commit & push</kbd>  
+輸入 commit message 然後按右下的藍色 <kbd>commit</kbd> 按鈕   
 
 完成！
 
 ## FAQ
 ### Unidentified
-第一次在本地使用 git 系列工具，可能在 **[ commit & push ]** 這步會遇到**個人資料還未完善**的問題。  
+第一次在本地使用 git 系列工具，可能在 <kbd>commit & push</kbd> 這步會遇到**個人資料還未完善**的問題。  
 我們將在終端解決這些障礙。即使估以很香但終端一直有種原始的美感...  
 
 先進到剛從 github 抓下來的那個與 repo 同名的本地資料夾中
@@ -66,7 +62,7 @@ Github 上的主分支叫做 original/main
 commit 是 commit 到 main, push 是推上 Github  
 大概是這樣
 
-在 vscode 左邊的 **[ Source Control ]** 中找到 **[ Sync Change ]**  
+在 vscode 左邊的 **[ Source Control ]** 中找到 <kbd>Sync Change</kbd>  
 點它  
 
 如果還不行的話應該是 Github 的 original/main 和本地的 main 有前有後的  
