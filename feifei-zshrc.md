@@ -51,5 +51,70 @@ export PS1="%F{blue}%n@%m%f %~ %F{blue}$%f "
 ```
 不排除任何人有更高級的美商，但依然提供湯底。
 
+## All content
+for backup
+```
+# >>> PATH && alias add by qing >>>
+export PATH="/opt/homebrew/bin:$PATH"
+#export PATH="/usr/local/bin:/usr/local/sbin:$PATH" # brew in usr/local is for $
+export PATH="/Application/Julia-1.11.app/Contents/Resources/julia/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
+export PATH="$PATH:$HOME/Radex/bin"
+export PYTHONPATH="${PYTHONPATH}:/Users/aqing"
+
+# >>> alias add by qing >>>
+alias casa=/Applications/CASA.app/Contents/MacOS/casa
+alias carta5b="open /opt/homebrew/Caskroom/CARTA-v5.0.0-beta.1.app"
+alias carta="/Applications/CARTA.app/Contents/MacOS/CARTA" # carta5.0.3
+alias madcuba="cd ~/MADCUBA_IJ && arch -x86_64 ./run.sh"
+alias arm="env /usr/bin/arch -arm64 /bin/zsh --login"
+alias x86="env /usr/bin/arch -x86_64 /bin/zsh --login"
+alias firew0rk="npx firew0rks fireworks"
+
+# >>> conda initialize (modi by qing) >>>
+ARCH=$(uname -m)
+if [ "$ARCH" = "arm64" ]; then
+    CONDA_PATH="/Users/aqing/miniconda3_arm"
+else
+    CONDA_PATH="/Users/aqing/miniconda3_x86"
+fi
+
+__conda_setup="$("$CONDA_PATH/bin/conda" 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "$CONDA_PATH/etc/profile.d/conda.sh" ]; then
+        . "$CONDA_PATH/etc/profile.d/conda.sh"
+    else
+        export PATH="$CONDA_PATH/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+# >>> terminal colcor modi by qing >>>
+autoload -U colors && colors
+export PS1="%F{blue}%n@%m%f %~ %F{blue}$%f "
+
+# Node.js-related
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This load$
+
+# Add iraf setup commands
+if [ -e /Users/aqing/.iraf/setup.sh ]; then
+    export iraf=/Applications/IRAF.app/Contents/iraf-v218/
+    export IRAFARCH=macosx
+    source /Users/aqing/.iraf/setup.sh
+fi
+
+# >>> juliaup initialize >>>
+    
+# !! Contents within this block are managed by juliaup !!
+      
+path=('/Users/aqing/.juliaup/bin' $path)
+export PATH
+
+# <<< juliaup initialize <<<
+```
 ----
 下次寫 ｀feifei`
