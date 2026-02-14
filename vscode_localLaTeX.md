@@ -26,21 +26,23 @@
 
 ## Local LaTeX Compiler
 不管怎樣，都會需要**編譯器**本體，這邊採用的範例是 **MacTex**。  
-到 [MacTex 官網](https://www.tug.org/mactex/mactex-download.html) 下載 **MacTex.pkg**，下載成功之後，進行以下兩個檢查已確認安裝。（或是可以在下載之前先看看電腦對這倆指令有沒有反應，搞不好有預先安裝呢？） 
-1.
+到 [MacTex 官網](https://www.tug.org/mactex/mactex-download.html) 下載 **MacTex.pkg**，下載成功之後，進行以下兩個檢查已確認安裝。（或是可以在下載之前先看看電腦對這倆指令有沒有反應，搞不好有預先安裝呢？）  
+1. 確認此目錄存在
 ```
 cd /usr/local/texlive
 ```
-確認這個資料夾存在！ **/texlive** 這個資料夾就是下載 MacTex 會自動附上的，超肥。  
-cd 進去應該可以看見 **/2025** 和 **/texmf-local** 這倆東西，這邊就是本地編譯器的本體所在，不可以刪掉喔。  
-2.
+**/texlive** 這個資料夾就是下載 MacTex 會自動附上的，超肥。  
+cd 進去應該可以看見 **/2025** 和 **/texmf-local** 這倆東西，這邊就是本地編譯器的本體所在，不可以刪掉喔。 
+
+2. 檢查編譯器路徑
 ```
 which xelatex
 >> /Library/TeX/texbin/xelatex
 which pdflatex
 >> /Library/TeX/texbin/pdflatex
 ```
-注意，/Library/TeX/texbin/ 這個路徑下本身不含 compiler，這是一個 symlink，compiler 的本體是在 /usr/local/texlive 這邊。  
+注意，`/Library/TeX/texbin/` 這個路徑下本身不含 compiler，這是一個 symlink，compiler 的本體是在 `/usr/local/texlive` 這邊。  
+
 我也不知道為什麼會這樣，但是你試試看這個，像這樣「->」的輸出就代表該目錄指向另一個目錄。  
 ```
 ls -l /Library/TeX/texbin/        
@@ -48,16 +50,12 @@ ls -l /Library/TeX/texbin/
 ```
 有點複雜但沒關係，不用管他也可以完成 Latex 的部署。
 
-當安裝完成之後，可以以下的用終端指令進行對 .tex 檔的編譯。  
-```
-xelatex
-pdflatex
-```
-我們可以先建立一個 .tex 檔，用下面這個終端指令、vscode、或是任何已知方式都可以建立 .tex 檔。   
+當安裝完成之後，我們可以先建立一個 .tex 檔以進行接下來的編譯測試。  
+用下面這個終端指令、vscode或是任何已知方式建立一個 .tex 檔。   
 ```
 touch ~/text.tex
 ```
-接著，在 `text.tex` 中寫入這些內容以進行測試。  
+接著，在 `text.tex` 中寫入這些內容。  
 ```
 \documentclass{article}
 \usepackage{xeCJK}
@@ -78,7 +76,7 @@ xelatex ~/text.tex
 應該會在與 `text.tex` 相同的目錄之下出現 `text.pdf`，點進去看看是不是如你所願！  
 
 p.s.  
-LaTeX 的編譯起有很多變種，像是上面用的 xelatex 就是一種，還有 pdflatex, luna latex...很多種，每種的「開頭語法」會略有不同。  
+LaTeX 的編譯起有很多變種，像是上面用的 xelatex 就是一種，還有 pdflatex, luna latex...等等，每種的「開頭語法」會略有不同。  
 比如說上面那個 test.tex 用 pdflatex 編譯的話， `\setCJKmainfont{PingFang TC}` 這行沒辦法正確編譯，會直接顯示在成品 pdf 裡面。  
 
-因為根據不可靠來源，xelatex 在中文（中日韓）字型的表現比 pdflatex 好，所以在接下來的設定中，我會在 vscode 中將 xelatex 設定成預設編譯器。  
+因為根據不可靠來源，**xelatex** 在中文（中日韓）字型的表現比 pdflatex 好，所以在接下來的設定中，我會在 vscode 中將 **xelatex** 設定成預設編譯器。  
