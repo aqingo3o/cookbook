@@ -48,4 +48,37 @@ ls -l /Library/TeX/texbin/
 ```
 有點複雜但沒關係，不用管他也可以完成 Latex 的部署。
 
-當安裝完成之後，可以用終端指令進行對 .tex 檔的編譯。  
+當安裝完成之後，可以以下的用終端指令進行對 .tex 檔的編譯。  
+```
+xelatex
+pdflatex
+```
+我們可以先建立一個 .tex 檔，用下面這個終端指令、vscode、或是任何已知方式都可以建立 .tex 檔。   
+```
+touch ~/text.tex
+```
+接著，在 `text.tex` 中寫入這些內容以進行測試。  
+```
+\documentclass{article}
+\usepackage{xeCJK}
+\setCJKmainfont{PingFang TC}
+
+\begin{document}
+使用這個酷方程，在量物獲得些許分數。
+\[
+i\hbar \frac{\partial \Psi}{\partial t}=\frac{-\hbar^2}{2m} \frac{\partial ^2 \Psi}{\partial x^2}+V(x)
+\]
+\end{document}
+```
+編譯的方法就是在終端輸入這個：
+```
+xelatex ~/text.tex
+```
+`xelatex` 就是指定使用編譯器種類，整個指令的概念類似於在終端使用 `python3 testtt.py` 可以執行該 .py 檔。  
+應該會在與 `text.tex` 相同的目錄之下出現 `text.pdf`，點進去看看是不是如你所願！  
+
+p.s.  
+LaTeX 的編譯起有很多變種，像是上面用的 xelatex 就是一種，還有 pdflatex, luna latex...很多種，每種的「開頭語法」會略有不同。  
+比如說上面那個 test.tex 用 pdflatex 編譯的話， `\setCJKmainfont{PingFang TC}` 這行沒辦法正確編譯，會直接顯示在成品 pdf 裡面。  
+
+因為根據不可靠來源，xelatex 在中文（中日韓）字型的表現比 pdflatex 好，所以在接下來的設定中，我會在 vscode 中將 xelatex 設定成預設編譯器。  
