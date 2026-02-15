@@ -244,4 +244,73 @@ LaTeX 的編譯起有很多變種，像是上面用的 xelatex 就是一種，�
     }
 ```
 ### 我提供的設定檔的一些解釋
+有些沒寫就是我不知道哈哈。  
 
+- "latex-workshop.intellisense.package.enabled: true"   
+ intelliSense 會自動補全 LaTeX 套件和命令，啊 true 就是允許他自動提示 \usepackage{} 或 command。
+
+- "latex-workshop.latex.tools:[...]"  
+    工具，定義「可以被執行的命令」。  
+    這裡的東西應該是裝了 LaTeX Workshop 之後就會自動出現在 setting.json 了，可以自己更改的地方只有 `"name": "the tool's name"` 這些部分。  
+    概念就是，有一個工具叫 **the tool's name-1**，使用這個工具的話實際上是在執行名為 **the command1**  的命令。 
+    ```js
+    "latex-workshop.latex.tools": [
+        {
+            "name": "the tool's name-1",
+            "command": "the command1",
+            "args": [ arguments ]
+        },
+        {
+            "name": "the tool's name-2",
+            "command": "the command2",
+            "args": [ arguments ]
+        }
+    ]
+    ```
+
+- "latex-workshop.latex.recipes:[...]"  
+    食譜，它定義的是要用哪些 tool 以及列出的順序。所以這邊的 `"tools": []` 裡面填入的工具名稱要是在 `latex-workshop.latex.tools` 那邊定義過的 （因為有可能會自己修改 tool 的名字，那邊改了這邊也要改。）  
+    這邊的 name 就比較隨便了，隨便取，自己認得出來就好。  
+    ```js
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "tool_ONE",
+            "tools": ["the tool's name-1"]
+        },
+        {
+            "name": "tool_TWO",
+            "tools": ["the tool's name-2"]
+        }
+    ]
+    ```
+
+- "latex-workshop.latex.recipe.default": "xelatex"  
+    設定預設的編譯器為 `xelatex`，這樣按右上角的綠色小箭頭就會直接用 `xelatex` 進行編譯。當然您可以設定成任何用的習慣的東西！不過這邊設定的編譯器名稱必須在 `latex-workshop.latex.recipes` 那邊存在。
+
+- "latex-workshop.latex.clean.fileTypes:[...]"  
+    在嘗試的環節，可以已經發現在編譯 .tex 的時候會連帶的產生一桶副檔名怪異的檔案，這行的功能就是自動清理這些編譯垃圾。在清楚情況的前提下，您可以增減這邊的設定讓自己的工作環境變得更加舒適。  
+
+- "latex-workshop.latex.autoClean.run": "onFailed"  
+    如同你所讀到的字面意思，這行的設定就是當編譯失敗時會自動清理上面那些檔案。  
+    也可以寫 "onBuilt"(編譯成功時清理), 或是 "never"(不清理，但就是會有一坨大便出現在資料夾中)。
+
+- "latex-workshop.latex.autoBuild.run": "onFileChange"  
+    這行是用來控制自動編譯 pdf 的，這邊填 "onFileChange" 代表在每次存檔時，自動編譯生成 pdf。  
+    也可以填 "never"（存檔時不會自動編譯）。
+
+- "latex-workshop.view.pdf.viewer": "tab"  
+    在 vscode 編輯 .tex 檔時，可以在另個視窗(tab)同時查看編譯後的 pdf。  
+    也可以寫 "external"(用 macPreview 開啟), "browser"(以瀏覽器開啟) 之類的，但我覺得 tab 會最方便。   
+
+- "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click"  
+    如同你所讀到的字面意思，這行的設定就是讓你可以 double click on pdf，看 pdf 的哪行對應到 .tex 檔裡的哪行。  
+
+- "editor.unicodeHighlight.allowedLocales" 
+    簡單來說，這個設定是讓 vscode 不要警告中文字符
+    - unicodeHighlight 會檢測文件裡的特殊字元，例如 emoji、希臘字母、全形字、非本地語言字元）。
+    - allowedLocales 允許哪些語言不被標記為「異常字元」。  
+    在我的例子： "zh-hans": false 代表簡體中文會被標紅或標記; "zh-hant": true 則是代表繁體中文不會被標紅或標記。（真的很羨慕母語是英文的人）  
+
+- "[latex]": {"editor.defaultFormatter": "James-Yu.latex-workshop"}  
+    - [latex] 表示只對 **.tex** 檔生效。  
+    - editor.defaultFormatter 是用來指定 vscode 使用哪個工具自動格式化檔案，這邊填 "James-Yu.latex-workshop"，因為這就是 LaTeX Workshop 提供的格式化工具。
