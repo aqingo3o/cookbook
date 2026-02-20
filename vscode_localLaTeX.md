@@ -14,15 +14,15 @@
 
 ## 前情提要
 根據不可靠來源，LaTeX 的 local compiler 有 `MacTex` 和 `TexLive`。在 mac 上，呼叫編譯器的手段可以透過 `Texshop` 或是 `vscode + Latex Workshop` (<- an vscode extension)。  
-流程像是這樣的:  
-<div style="color: #000000; background-color: #cceeff;"><strong>Texshop</strong> or <strong>vscode + Latex Workshop</strong> </div>
-&darr;
-<p style="color: #000000; background-color: #cceeff;">Call the Compiler</p>   
-&darr;
-<p style="color: #000000; background-color: #cceeff;"><strong>MacTex</strong> or <strong>Tex Live</strong> </p>  
-&darr;
-<p style="color: #333; background-color: #cceeff;">PDF #</p>  
 
+流程像是這樣的:  
+<mark><strong>Texshop</strong></mark> or <mark><strong>vscode + Latex Workshop</strong></mark>  
+&darr;  
+<mark>Call the Compiler</mark>   
+&darr;  
+<mark><strong>MacTex</strong></mark> or <mark><strong>Tex Live</strong></mark>  
+&darr;  
+<mark>PDF #</mark>  
 
 ## Local LaTeX Compiler
 不管怎樣，都會需要**編譯器**本體，這邊採用的範例是 **MacTex**。  
