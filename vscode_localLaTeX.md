@@ -123,9 +123,6 @@ xelatex ~/text.tex
 
 p.s.  
 LaTeX 的編譯引擎有很多變種，除了上面用的 xelatex ，還有 pdflatex, luaLatex...等等，每種的字型支援、Unicode 支援與套件相容性都會略有不同。
-
-	•	\setCJKmainfont{PingFang TC} 需要系統字型支援
-	•	  
 比如說上面那個 test.tex 必須用 xelatex 編譯，因為使用的中日韓字型套件 xeCJK 套件依賴 xelatex 引擎（應該從名字看ㄉ出來），還有pdflatex 無法直接使用系統字型（test.tex 裡面說中文字型要用蘋方），但 xelatex 可以。  
 總而言之，**xelatex** 在中文（中日韓）字型的表現比 pdflatex 好，所以在接下來的設定中，我會在 vscode 中將 **xelatex** 設定成預設編譯器。
 
@@ -163,7 +160,7 @@ LaTeX 的編譯引擎有很多變種，除了上面用的 xelatex ，還有 pdfl
     "github.copilot.nextEditSuggestions.enabled": true,
 }
 ```
-應該可以看到設定檔裡面已經有一些 LaTeX 相關的內容， 不裹因為的不順手，所以在階下來的不揍中我會將他們都副蓋掉。  
+應該可以看到設定檔裡面已經有一些 LaTeX 相關的內容，不過因為用得不順手，所以在接下來的步驟中我會將他們都覆蓋掉。  
 
 這邊分享我在設定檔裡寫了什麼，當然您也可以上網找別人寫的設定檔或是 AI 生成一個設定檔。  
 請將雙引號開頭的東西 (`"latex-workshop.intellisense.biblatexJSON.replace"`, `"latex-workshop.intellisense.package.enabled"` 這類的) 與既有的雙引號 (`"python.defaultInterpreterPath"`, `"github.copilot.nextEditSuggestions.enabled"` 等等) 對齊。
